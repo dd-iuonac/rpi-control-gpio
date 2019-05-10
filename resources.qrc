@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="icons">
+      <file>icons/exit-to-app-button.png</file>
+      <file>icons/information.png</file>
+      <file>icons/load-file-option.png</file>
+      <file>icons/save-file-option.png</file>
     <file>icons/rpi-gpio.jpg</file>
   </qresource>
 </RCC>

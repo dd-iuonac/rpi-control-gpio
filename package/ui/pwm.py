@@ -2,11 +2,11 @@
 
 # Form implementation generated from reading ui file 'pwm.ui'
 #
-# Created by: PyQt5 UI code generator 5.12.1
+# Created by: PyQt5 UI code generator 5.12.2
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_Form(object):
@@ -64,5 +64,3 @@ class Ui_Form(object):
         self.label.setText(_translate("Form", "Frequency"))
         self.label_2.setText(_translate("Form", "Duty Cycle"))
         self.button_pwm.setText(_translate("Form", "Start"))
-
-

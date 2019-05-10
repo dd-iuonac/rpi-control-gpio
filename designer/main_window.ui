@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>MainWindow</class>
+    <widget class="QMainWindow" name="MainWindow">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>764</width>
+                <height>843</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>MainWindow</string>
+        </property>
+        <widget class="QWidget" name="centralwidget">
+            <layout class="QGridLayout" name="gridLayout">
+                <item row="0" column="0" rowspan="5">
+                    <widget class="QListView" name="listView"/>
+                </item>
+                <item row="0" column="1">
+                    <widget class="QLabel" name="label_3">
+                        <property name="text">
+                            <string/>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap resource="../resources.qrc">:/icons/icons/rpi-gpio.jpg</pixmap>
+                        </property>
+                        <property name="scaledContents">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
+                </item>
+                <item row="1" column="1">
+                    <widget class="QLineEdit" name="lineEdit_name">
+                        <property name="enabled">
+                            <bool>false</bool>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <pointsize>14</pointsize>
+                                <weight>75</weight>
+                                <bold>true</bold>
+                            </font>
+                        </property>
+                        <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                        </property>
+                    </widget>
+                </item>
+                <item row="2" column="1">
+                    <widget class="QGroupBox" name="groupBox_type">
+                        <property name="title">
+                            <string>Properties</string>
+                        </property>
+                        <layout class="QFormLayout" name="formLayout">
+                            <item row="1" column="0">
+                                <widget class="QLabel" name="label_2">
+                                    <property name="text">
+                                        <string>Type:</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="1" column="1">
+                                <widget class="QComboBox" name="comboBox_type">
+                                    <item>
+                                        <property name="text">
+                                            <string>Input</string>
+                                        </property>
+                                    </item>
+                                    <item>
+                                        <property name="text">
+                                            <string>Output</string>
+                                        </property>
+                                    </item>
+                                </widget>
+                            </item>
+                            <item row="2" column="0">
+                                <widget class="QLabel" name="label">
+                                    <property name="text">
+                                        <string>Mode:</string>
+                                    </property>
+                                </widget>
+                            </item>
+                            <item row="2" column="1">
+                                <widget class="QComboBox" name="comboBox_mode">
+                                    <item>
+                                        <property name="text">
+                                            <string>Digital</string>
+                                        </property>
+                                    </item>
+                                    <item>
+                                        <property name="text">
+                                            <string>Pulse Width Modulation</string>
+                                        </property>
+                                    </item>
+                                </widget>
+                            </item>
+                        </layout>
+                    </widget>
+                </item>
+                <item row="3" column="1">
+                    <widget class="QGroupBox" name="groupBox_values">
+                        <property name="title">
+                            <string>Values</string>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout">
+                            <item>
+                                <layout class="QVBoxLayout" name="layout_values"/>
+                            </item>
+                            <item>
+                                <spacer name="verticalSpacer">
+                                    <property name="orientation">
+                                        <enum>Qt::Vertical</enum>
+                                    </property>
+                                    <property name="sizeHint" stdset="0">
+                                        <size>
+                                            <width>20</width>
+                                            <height>16</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                            </item>
+                        </layout>
+                    </widget>
+                </item>
+                <item row="4" column="1">
+                    <layout class="QHBoxLayout" name="horizontalLayout_3">
+                        <item>
+                            <spacer name="horizontalSpacer">
+                                <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                </property>
+                                <property name="sizeHint" stdset="0">
+                                    <size>
+                                        <width>40</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </item>
+                        <item>
+                            <widget class="QPushButton" name="button_pwm">
+                                <property name="text">
+                                    <string>Enable</string>
+                                </property>
+                                <property name="checkable">
+                                    <bool>true</bool>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <spacer name="horizontalSpacer_2">
+                                <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                </property>
+                                <property name="sizeHint" stdset="0">
+                                    <size>
+                                        <width>40</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </item>
+                    </layout>
+                </item>
+            </layout>
+        </widget>
+        <widget class="QMenuBar" name="menubar">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>764</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <widget class="QMenu" name="menuFile">
+                <property name="title">
+                    <string>File</string>
+                </property>
+                <addaction name="action_load"/>
+                <addaction name="action_save"/>
+                <addaction name="separator"/>
+                <addaction name="action_exit"/>
+            </widget>
+            <widget class="QMenu" name="menuAbout">
+                <property name="title">
+                    <string>Help</string>
+                </property>
+                <addaction name="action_about"/>
+            </widget>
+            <addaction name="menuFile"/>
+            <addaction name="menuAbout"/>
+        </widget>
+        <widget class="QStatusBar" name="statusbar"/>
+        <action name="action_load">
+            <property name="icon">
+                <iconset resource="../resources.qrc">
+                    <normaloff>:/icons/icons/load-file-option.png</normaloff>:/icons/icons/load-file-option.png
+                </iconset>
+            </property>
+            <property name="text">
+                <string>Load</string>
+            </property>
+            <property name="shortcut">
+                <string>Ctrl+L</string>
+            </property>
+            <property name="shortcutVisibleInContextMenu">
+                <bool>true</bool>
+            </property>
+        </action>
+        <action name="action_save">
+            <property name="icon">
+                <iconset resource="../resources.qrc">
+                    <normaloff>:/icons/icons/save-file-option.png</normaloff>:/icons/icons/save-file-option.png
+                </iconset>
+            </property>
+            <property name="text">
+                <string>Save</string>
+            </property>
+            <property name="shortcut">
+                <string>Ctrl+S</string>
+            </property>
+            <property name="shortcutVisibleInContextMenu">
+                <bool>true</bool>
+            </property>
+        </action>
+        <action name="action_exit">
+            <property name="icon">
+                <iconset resource="../resources.qrc">
+                    <normaloff>:/icons/icons/exit-to-app-button.png</normaloff>:/icons/icons/exit-to-app-button.png
+                </iconset>
+            </property>
+            <property name="text">
+                <string>Exit</string>
+            </property>
+            <property name="shortcut">
+                <string>Ctrl+Q</string>
+            </property>
+            <property name="shortcutVisibleInContextMenu">
+                <bool>true</bool>
+            </property>
+        </action>
+        <action name="action_about">
+            <property name="icon">
+                <iconset resource="../resources.qrc">
+                    <normaloff>:/icons/icons/information.png</normaloff>:/icons/icons/information.png
+                </iconset>
+            </property>
+            <property name="text">
+                <string>About</string>
+            </property>
+        </action>
+    </widget>
+    <resources>
+        <include location="../resources.qrc"/>
+    </resources>
+    <connections/>
+</ui>

@@ -1,12 +1,10 @@
-from RPi import GPIO
-
 
 class Pin(object):
     def __init__(self):
-        self.id = "0"
+        self.id = 0
         self.name = ""
         self.type = "Input"
-        self.mode = "Digial"
+        self.mode = "Digital"
         self.frequency = 0
         self.duty_cycle = 0
         self.value = 0
@@ -62,15 +60,3 @@ class Pin(object):
         self.frequency = config["frequency"]
         self.duty_cycle = config["duty_cycle"]
         self.value = config["value"]
-
-        if "Input".__eq__(self.type):
-            if "Digital".__eq__(self.mode):
-                GPIO.setup(int(self.id), GPIO.IN)
-            else:  # PWM
-                pass
-        else:  # Output
-            if "Digital".__eq__(self.mode):
-                GPIO.setup(int(self.id), GPIO.OUT)
-                GPIO.output(int(self.id), self.value)
-            else:  # PWM
-                pass

@@ -1,5 +1,5 @@
-from PyQt5.QtCore import QAbstractTableModel, QModelIndex, Qt
 import typing
+from PyQt5.QtCore import QAbstractTableModel, QModelIndex, Qt
 
 
 class PinModel(QAbstractTableModel):
@@ -19,10 +19,10 @@ class PinModel(QAbstractTableModel):
                 return True
         return False
 
-    def columnCount(self, parent: QModelIndex = ...):
+    def columnCount(self, parent=None, *args, **kwargs):
         return 6
 
-    def rowCount(self, parent: QModelIndex = ...):
+    def rowCount(self, parent=None, *args, **kwargs):
         return self._pins_list.__len__()
 
     def flags(self, index: QModelIndex):

@@ -1,179 +1,17 @@
 {
-    "10": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "10",
-        "mode": "Digital",
-        "name": "GPIO 10",
-        "type": "Input",
-        "value": 0
-    },
-    "11": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "11",
-        "mode": "Digital",
-        "name": "GPIO 11",
-        "type": "Input",
-        "value": 0
-    },
-    "12": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "12",
-        "mode": "Digital",
-        "name": "GPIO 12",
-        "type": "Input",
-        "value": 0
-    },
-    "13": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "13",
-        "mode": "Digital",
-        "name": "GPIO 13",
-        "type": "Input",
-        "value": 0
-    },
-    "14": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "14",
-        "mode": "Digital",
-        "name": "GPIO 14",
-        "type": "Input",
-        "value": 0
-    },
-    "15": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "15",
-        "mode": "Digital",
-        "name": "GPIO 15",
-        "type": "Input",
-        "value": 0
-    },
-    "16": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "16",
-        "mode": "Digital",
-        "name": "GPIO 16",
-        "type": "Input",
-        "value": 0
-    },
-    "17": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "17",
-        "mode": "Digital",
-        "name": "GPIO 17",
-        "type": "Input",
-        "value": 0
-    },
-    "18": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "18",
-        "mode": "Digital",
-        "name": "GPIO 18",
-        "type": "Input",
-        "value": 0
-    },
-    "19": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "19",
-        "mode": "Digital",
-        "name": "GPIO 19",
-        "type": "Input",
-        "value": 0
-    },
     "2": {
         "duty_cycle": 100,
         "frequency": 5210,
-        "id": "2",
-        "mode": "Pulse Width Modulation",
+        "id": 2,
+        "mode": "Digital",
         "name": "GPIO 2",
-        "type": "Output",
-        "value": 0
-    },
-    "20": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "20",
-        "mode": "Digital",
-        "name": "GPIO 20",
-        "type": "Input",
-        "value": 0
-    },
-    "21": {
-        "duty_cycle": 66,
-        "frequency": 4789,
-        "id": "21",
-        "mode": "Pulse Width Modulation",
-        "name": "GPIO 21",
-        "type": "Output",
-        "value": 0
-    },
-    "22": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "22",
-        "mode": "Digital",
-        "name": "GPIO 22",
-        "type": "Input",
-        "value": 0
-    },
-    "23": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "23",
-        "mode": "Digital",
-        "name": "GPIO 23",
-        "type": "Input",
-        "value": 0
-    },
-    "24": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "24",
-        "mode": "Digital",
-        "name": "GPIO 24",
-        "type": "Input",
-        "value": 0
-    },
-    "25": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "25",
-        "mode": "Digital",
-        "name": "GPIO 25",
-        "type": "Input",
-        "value": 0
-    },
-    "26": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "26",
-        "mode": "Digital",
-        "name": "GPIO 26",
-        "type": "Input",
-        "value": 0
-    },
-    "27": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
-        "id": "27",
-        "mode": "Digital",
-        "name": "GPIO 27",
         "type": "Input",
         "value": 0
     },
     "3": {
         "duty_cycle": 1.0,
         "frequency": 1.0,
-        "id": "3",
+        "id": 3,
         "mode": "Pulse Width Modulation",
         "name": "GPIO 3",
         "type": "Input",
@@ -182,7 +20,7 @@
     "4": {
         "duty_cycle": 92,
         "frequency": 8935,
-        "id": "4",
+        "id": 4,
         "mode": "Pulse Width Modulation",
         "name": "GPIO 4",
         "type": "Output",
@@ -191,7 +29,7 @@
     "5": {
         "duty_cycle": 1.0,
         "frequency": 1.0,
-        "id": "5",
+        "id": 5,
         "mode": "Digital",
         "name": "GPIO 5",
         "type": "Input",
@@ -200,7 +38,7 @@
     "6": {
         "duty_cycle": 1.0,
         "frequency": 1.0,
-        "id": "6",
+        "id": 6,
         "mode": "Digital",
         "name": "GPIO 6",
         "type": "Input",
@@ -209,7 +47,7 @@
     "7": {
         "duty_cycle": 1.0,
         "frequency": 1.0,
-        "id": "7",
+        "id": 7,
         "mode": "Digital",
         "name": "GPIO 7",
         "type": "Input",
@@ -218,7 +56,7 @@
     "8": {
         "duty_cycle": 1.0,
         "frequency": 1.0,
-        "id": "8",
+        "id": 8,
         "mode": "Digital",
         "name": "GPIO 8",
         "type": "Input",
@@ -227,9 +65,171 @@
     "9": {
         "duty_cycle": 1.0,
         "frequency": 1.0,
-        "id": "9",
+        "id": 9,
         "mode": "Digital",
         "name": "GPIO 9",
+        "type": "Input",
+        "value": 0
+    },
+    "10": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 10,
+        "mode": "Digital",
+        "name": "GPIO 10",
+        "type": "Input",
+        "value": 0
+    },
+    "11": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 11,
+        "mode": "Digital",
+        "name": "GPIO 11",
+        "type": "Input",
+        "value": 0
+    },
+    "12": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 12,
+        "mode": "Digital",
+        "name": "GPIO 12",
+        "type": "Input",
+        "value": 0
+    },
+    "13": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 13,
+        "mode": "Digital",
+        "name": "GPIO 13",
+        "type": "Input",
+        "value": 0
+    },
+    "14": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 14,
+        "mode": "Digital",
+        "name": "GPIO 14",
+        "type": "Input",
+        "value": 0
+    },
+    "15": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 15,
+        "mode": "Digital",
+        "name": "GPIO 15",
+        "type": "Input",
+        "value": 0
+    },
+    "16": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 16,
+        "mode": "Digital",
+        "name": "GPIO 16",
+        "type": "Input",
+        "value": 0
+    },
+    "17": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 17,
+        "mode": "Digital",
+        "name": "GPIO 17",
+        "type": "Input",
+        "value": 0
+    },
+    "18": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 18,
+        "mode": "Digital",
+        "name": "GPIO 18",
+        "type": "Input",
+        "value": 0
+    },
+    "19": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 19,
+        "mode": "Digital",
+        "name": "GPIO 19",
+        "type": "Input",
+        "value": 0
+    },
+    "20": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 20,
+        "mode": "Digital",
+        "name": "GPIO 20",
+        "type": "Input",
+        "value": 0
+    },
+    "21": {
+        "duty_cycle": 66,
+        "frequency": 4789,
+        "id": 21,
+        "mode": "Pulse Width Modulation",
+        "name": "GPIO 21",
+        "type": "Output",
+        "value": 0
+    },
+    "22": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 22,
+        "mode": "Digital",
+        "name": "GPIO 22",
+        "type": "Input",
+        "value": 0
+    },
+    "23": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 23,
+        "mode": "Digital",
+        "name": "GPIO 23",
+        "type": "Input",
+        "value": 0
+    },
+    "24": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 24,
+        "mode": "Digital",
+        "name": "GPIO 24",
+        "type": "Input",
+        "value": 0
+    },
+    "25": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 25,
+        "mode": "Digital",
+        "name": "GPIO 25",
+        "type": "Input",
+        "value": 0
+    },
+    "26": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 26,
+        "mode": "Digital",
+        "name": "GPIO 26",
+        "type": "Input",
+        "value": 0
+    },
+    "27": {
+        "duty_cycle": 1.0,
+        "frequency": 1.0,
+        "id": 27,
+        "mode": "Digital",
+        "name": "GPIO 27",
         "type": "Input",
         "value": 0
     }
