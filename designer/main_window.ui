@@ -140,7 +140,7 @@
                             </spacer>
                         </item>
                         <item>
-                            <widget class="QPushButton" name="button_pwm">
+                            <widget class="QPushButton" name="button_enable">
                                 <property name="text">
                                     <string>Enable</string>
                                 </property>
@@ -188,6 +188,7 @@
                 <property name="title">
                     <string>Help</string>
                 </property>
+                <addaction name="action_license"/>
                 <addaction name="action_about"/>
             </widget>
             <addaction name="menuFile"/>
@@ -206,9 +207,6 @@
             <property name="shortcut">
                 <string>Ctrl+L</string>
             </property>
-            <property name="shortcutVisibleInContextMenu">
-                <bool>true</bool>
-            </property>
         </action>
         <action name="action_save">
             <property name="icon">
@@ -221,9 +219,6 @@
             </property>
             <property name="shortcut">
                 <string>Ctrl+S</string>
-            </property>
-            <property name="shortcutVisibleInContextMenu">
-                <bool>true</bool>
             </property>
         </action>
         <action name="action_exit">
@@ -238,9 +233,6 @@
             <property name="shortcut">
                 <string>Ctrl+Q</string>
             </property>
-            <property name="shortcutVisibleInContextMenu">
-                <bool>true</bool>
-            </property>
         </action>
         <action name="action_about">
             <property name="icon">
@@ -250,6 +242,19 @@
             </property>
             <property name="text">
                 <string>About</string>
+            </property>
+            <property name="shortcut">
+                <string>Ctrl+H</string>
+            </property>
+        </action>
+        <action name="action_license">
+            <property name="icon">
+                <iconset resource="../resources.qrc">
+                    <normaloff>:/icons/icons/agreement.png</normaloff>:/icons/icons/agreement.png
+                </iconset>
+            </property>
+            <property name="text">
+                <string>License</string>
             </property>
         </action>
     </widget>

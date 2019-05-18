@@ -7,6 +7,7 @@ from db import PIN_LIST
 from package.models import PinModel
 from package.ui.digital_input import Ui_DigitalInput
 from package.ui.digital_out import Ui_DigitalOutput
+from package.ui.license import Ui_License
 from package.ui.main_window import Ui_MainWindow
 from package.ui.pulse_width_modulation import Ui_PulseWidthModulation
 
@@ -82,6 +83,13 @@ class PulseWidthModulationController(QtWidgets.QWidget):
         self.ui.slider_duty_cycle.valueChanged.connect(self.on_slider_duty_cycle)
         self.ui.spinbox_frequency.valueChanged.connect(self.on_spinbox_frequency)
         self.ui.spinbox_duty_cycle.valueChanged.connect(self.on_spinbox_duty_cycle)
+        self.ui.button_pwm.clicked.connect(self.on_button_pwm)
+
+    def on_button_pwm(self, value):
+        if value:
+            self.ui.button_pwm.setText("Stop")
+        else:
+            self.ui.button_pwm.setText("Start")
 
     def on_spinbox_duty_cycle(self, value):
         self.ui.slider_duty_cycle.setValue(value)
@@ -131,6 +139,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.ui.listView.selectionModel().currentChanged.connect(self.set_selection)
 
+        self.license_controller = LicenseController()
         self.digital_input_controller = DigitalInputController(self)
         self.digital_output_controller = DigitalOutputController(self.model, self)
         self.pwm_controller = PulseWidthModulationController(self.model, self)
@@ -141,9 +150,20 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.comboBox_type.currentTextChanged.connect(self.on_type_changed)
         self.ui.comboBox_mode.currentTextChanged.connect(self.on_mode_changed)
         self.ui.action_exit.triggered.connect(QtWidgets.qApp.quit)
+        self.ui.action_license.triggered.connect(self.license_controller.show)
         self.ui.action_about.triggered.connect(self.on_action_about)
         self.ui.action_load.triggered.connect(self.on_action_load)
         self.ui.action_save.triggered.connect(self.on_action_save)
+        self.ui.button_enable.clicked.connect(self.on_button_enable)
+
+    def set_selection(self, current: QModelIndex, old: QModelIndex):
+        self.current_model_index = current
+        self.data_mapper.setCurrentModelIndex(current)
+
+        self.pwm_controller.set_selection(current)
+        self.digital_output_controller.set_selection(current)
+        self.digital_input_controller.set_selection(current)
+        self.on_update_ui(current.row())
 
     def on_mode_changed(self, text: str):
         pin_type = self.ui.comboBox_type.currentText()
@@ -153,18 +173,51 @@ class MainWindow(QtWidgets.QMainWindow):
         pin_mode = self.ui.comboBox_mode.currentText()
         self.on_update_controllers(text, pin_mode)
 
-    def set_selection(self, current: QModelIndex, old: QModelIndex):
-        self.current_model_index = current
-        self.data_mapper.setCurrentModelIndex(current)
-
-        self.pwm_controller.set_selection(current)
-        self.digital_output_controller.set_selection(current)
-        self.digital_input_controller.set_selection(current)
-
     def showEvent(self, a0: QtGui.QShowEvent):
         pin_type = self.ui.comboBox_type.currentText()
         pin_mode = self.ui.comboBox_mode.currentText()
         self.on_update_controllers(pin_type, pin_mode)
+        self.on_update_ui(0)
+
+    def on_update_ui(self, index: int):
+        pin = PIN_LIST[index]
+        self.ui.comboBox_mode.setEnabled(not pin.enable)
+        self.ui.comboBox_type.setEnabled(not pin.enable)
+        self.pwm_controller.ui.button_pwm.setEnabled(pin.enable)
+        self.pwm_controller.ui.slider_duty_cycle.setEnabled(pin.enable)
+        self.pwm_controller.ui.slider_frequency.setEnabled(pin.enable)
+        self.pwm_controller.ui.spinbox_frequency.setEnabled(pin.enable)
+        self.pwm_controller.ui.spinbox_duty_cycle.setEnabled(pin.enable)
+        self.digital_input_controller.ui.pushButton_read.setEnabled(pin.enable)
+        self.digital_output_controller.ui.slider_value.setEnabled(pin.enable)
+        self.digital_output_controller.ui.spinbox_value.setEnabled(pin.enable)
+        self.ui.button_enable.setChecked(pin.enable)
+        if pin.enable:
+            self.ui.button_enable.setText("Disable")
+        else:
+            self.ui.button_enable.setText("Enable")
+
+    def on_button_enable(self, value):
+        # self.on_update_ui(self.current_model_index.row())
+        self.ui.comboBox_type.setEnabled(not value)
+        self.ui.comboBox_mode.setEnabled(not value)
+        self.pwm_controller.ui.button_pwm.setEnabled(value)
+        self.pwm_controller.ui.slider_duty_cycle.setEnabled(value)
+        self.pwm_controller.ui.slider_frequency.setEnabled(value)
+        self.pwm_controller.ui.spinbox_frequency.setEnabled(value)
+        self.pwm_controller.ui.spinbox_duty_cycle.setEnabled(value)
+        self.digital_input_controller.ui.pushButton_read.setEnabled(value)
+        self.digital_output_controller.ui.slider_value.setEnabled(value)
+        self.digital_output_controller.ui.spinbox_value.setEnabled(value)
+        PIN_LIST[self.current_model_index.row()].enable = value
+
+        if value:
+            self.ui.button_enable.setText("Disable")
+        else:
+            self.ui.button_enable.setText("Enable")
+            self.pwm_controller.ui.button_pwm.setText("Start")
+            self.pwm_controller.ui.button_pwm.setChecked(False)
+            self.pwm_controller.ui.button_pwm.setEnabled(False)
 
     def on_update_controllers(self, pin_type: str, pin_mode: str):
         if pin_type.__eq__("Input"):
@@ -223,3 +276,16 @@ class MainWindow(QtWidgets.QMainWindow):
                 filename += ".json"
             from db import load_configuration
             load_configuration(filename)
+
+
+class LicenseController(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(LicenseController, self).__init__(parent, flags=Qt.Widget)
+        self.ui = Ui_License()
+        self.ui.setupUi(self)
+        self.setWindowModality(Qt.WindowModal)
+        self.ui.button_close.clicked.connect(self.close)
+        file = open("LICENSE", "r")
+        text = file.read()
+        file.close()
+        self.ui.text.setPlainText(text)

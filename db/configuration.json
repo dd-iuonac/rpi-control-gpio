@@ -1,25 +1,28 @@
 {
     "2": {
         "duty_cycle": 100,
+      "enable": false,
         "frequency": 5210,
         "id": 2,
-        "mode": "Digital",
+      "mode": "Pulse Width Modulation",
         "name": "GPIO 2",
-        "type": "Input",
+      "type": "Output",
         "value": 0
     },
     "3": {
-        "duty_cycle": 1.0,
-        "frequency": 1.0,
+      "duty_cycle": 46,
+      "enable": false,
+      "frequency": 5162,
         "id": 3,
-        "mode": "Pulse Width Modulation",
+      "mode": "Digital",
         "name": "GPIO 3",
-        "type": "Input",
-        "value": 0
+      "type": "Output",
+      "value": 1
     },
     "4": {
-        "duty_cycle": 92,
-        "frequency": 8935,
+      "duty_cycle": 16,
+      "enable": true,
+      "frequency": 1054,
         "id": 4,
         "mode": "Pulse Width Modulation",
         "name": "GPIO 4",
@@ -28,15 +31,17 @@
     },
     "5": {
         "duty_cycle": 1.0,
-        "frequency": 1.0,
+      "enable": true,
+      "frequency": 5513,
         "id": 5,
-        "mode": "Digital",
+      "mode": "Pulse Width Modulation",
         "name": "GPIO 5",
-        "type": "Input",
+      "type": "Output",
         "value": 0
     },
     "6": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 6,
         "mode": "Digital",
@@ -46,6 +51,7 @@
     },
     "7": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 7,
         "mode": "Digital",
@@ -55,6 +61,7 @@
     },
     "8": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 8,
         "mode": "Digital",
@@ -64,6 +71,7 @@
     },
     "9": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 9,
         "mode": "Digital",
@@ -73,6 +81,7 @@
     },
     "10": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 10,
         "mode": "Digital",
@@ -82,6 +91,7 @@
     },
     "11": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 11,
         "mode": "Digital",
@@ -91,6 +101,7 @@
     },
     "12": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 12,
         "mode": "Digital",
@@ -100,6 +111,7 @@
     },
     "13": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 13,
         "mode": "Digital",
@@ -109,6 +121,7 @@
     },
     "14": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 14,
         "mode": "Digital",
@@ -118,6 +131,7 @@
     },
     "15": {
         "duty_cycle": 1.0,
+      "enable": true,
         "frequency": 1.0,
         "id": 15,
         "mode": "Digital",
@@ -127,6 +141,7 @@
     },
     "16": {
         "duty_cycle": 1.0,
+      "enable": true,
         "frequency": 1.0,
         "id": 16,
         "mode": "Digital",
@@ -136,6 +151,7 @@
     },
     "17": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 17,
         "mode": "Digital",
@@ -145,6 +161,7 @@
     },
     "18": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 18,
         "mode": "Digital",
@@ -154,6 +171,7 @@
     },
     "19": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 19,
         "mode": "Digital",
@@ -163,6 +181,7 @@
     },
     "20": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 20,
         "mode": "Digital",
@@ -172,6 +191,7 @@
     },
     "21": {
         "duty_cycle": 66,
+      "enable": false,
         "frequency": 4789,
         "id": 21,
         "mode": "Pulse Width Modulation",
@@ -181,6 +201,7 @@
     },
     "22": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 22,
         "mode": "Digital",
@@ -190,15 +211,17 @@
     },
     "23": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 23,
-        "mode": "Digital",
+      "mode": "Pulse Width Modulation",
         "name": "GPIO 23",
-        "type": "Input",
+      "type": "Output",
         "value": 0
     },
     "24": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 24,
         "mode": "Digital",
@@ -208,6 +231,7 @@
     },
     "25": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 25,
         "mode": "Digital",
@@ -217,6 +241,7 @@
     },
     "26": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 26,
         "mode": "Digital",
@@ -226,6 +251,7 @@
     },
     "27": {
         "duty_cycle": 1.0,
+      "enable": false,
         "frequency": 1.0,
         "id": 27,
         "mode": "Digital",

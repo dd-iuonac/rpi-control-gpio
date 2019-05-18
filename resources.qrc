@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icons">
+      <file>icons/agreement.png</file>
       <file>icons/exit-to-app-button.png</file>
       <file>icons/information.png</file>
       <file>icons/load-file-option.png</file>

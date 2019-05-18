@@ -29,16 +29,7 @@ def save_configuration(configuration_file=CONFIGURATION_FILE):
     """
     data = {}
     for pin in PIN_LIST:
-        config = {
-            "id": pin.id,
-            "name": pin.name,
-            "type": pin.type,
-            "mode": pin.mode,
-            "frequency": pin.frequency,
-            "duty_cycle": pin.duty_cycle,
-            "value": pin.value
-        }
-        data[pin.id] = config
+        data[pin.id] = pin.__repr__()
 
     with open(configuration_file, "w+") as file:
         json.dump(data, file, indent=4, sort_keys=True)

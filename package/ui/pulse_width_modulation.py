@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'pulse_width_modulation.ui'
+# Form implementation generated from reading ui file 'designer/pulse_width_modulation.ui'
 #
 # Created by: PyQt5 UI code generator 5.12.2
 #
@@ -12,9 +12,9 @@ from PyQt5 import QtCore, QtWidgets
 class Ui_PulseWidthModulation(object):
     def setupUi(self, PulseWidthModulation):
         PulseWidthModulation.setObjectName("PulseWidthModulation")
-        PulseWidthModulation.resize(290, 119)
-        self.verticalLayout = QtWidgets.QVBoxLayout(PulseWidthModulation)
-        self.verticalLayout.setObjectName("verticalLayout")
+        PulseWidthModulation.resize(325, 219)
+        self.gridLayout = QtWidgets.QGridLayout(PulseWidthModulation)
+        self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label = QtWidgets.QLabel(PulseWidthModulation)
@@ -29,7 +29,7 @@ class Ui_PulseWidthModulation(object):
         self.spinbox_frequency.setMaximum(9999.99)
         self.spinbox_frequency.setObjectName("spinbox_frequency")
         self.horizontalLayout.addWidget(self.spinbox_frequency)
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 1)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_2 = QtWidgets.QLabel(PulseWidthModulation)
@@ -44,7 +44,16 @@ class Ui_PulseWidthModulation(object):
         self.spinbox_duty_cycle.setMaximum(100.0)
         self.spinbox_duty_cycle.setObjectName("spinbox_duty_cycle")
         self.horizontalLayout_2.addWidget(self.spinbox_duty_cycle)
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem)
+        self.button_pwm = QtWidgets.QPushButton(PulseWidthModulation)
+        self.button_pwm.setCheckable(True)
+        self.button_pwm.setObjectName("button_pwm")
+        self.horizontalLayout_3.addWidget(self.button_pwm)
+        self.gridLayout.addLayout(self.horizontalLayout_3, 2, 0, 1, 1)
 
         self.retranslateUi(PulseWidthModulation)
         QtCore.QMetaObject.connectSlotsByName(PulseWidthModulation)
@@ -54,3 +63,4 @@ class Ui_PulseWidthModulation(object):
         PulseWidthModulation.setWindowTitle(_translate("PulseWidthModulation", "Form"))
         self.label.setText(_translate("PulseWidthModulation", "Frequency"))
         self.label_2.setText(_translate("PulseWidthModulation", "Duty Cycle"))
+        self.button_pwm.setText(_translate("PulseWidthModulation", "Start"))

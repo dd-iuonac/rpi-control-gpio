@@ -8,6 +8,7 @@ class Pin(object):
         self.frequency = 0
         self.duty_cycle = 0
         self.value = 0
+        self.enable = False
         self.pwm_instance = None
 
     def set_data(self, column: int, value):
@@ -48,7 +49,8 @@ class Pin(object):
             "mode": self.mode,
             "frequency": self.frequency,
             "duty_cycle": self.duty_cycle,
-            "value": self.value
+            "value": self.value,
+            "enable": self.enable
         }
         return data
 
@@ -60,3 +62,4 @@ class Pin(object):
         self.frequency = config["frequency"]
         self.duty_cycle = config["duty_cycle"]
         self.value = config["value"]
+        self.enable = config["enable"]
