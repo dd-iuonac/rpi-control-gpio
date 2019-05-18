@@ -1,2 +1,3 @@
-# rpi-control-gpio
-A tool to control Raspbery Pi 3 GPIO
+## Raspberry Pi 3 G.P.I.O. Control
+This is a tool for controlling Raspberry Pi 3 G.P.I.O.
+
