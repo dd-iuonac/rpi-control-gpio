@@ -200,13 +200,13 @@
         "value": 0
     },
     "22": {
-        "duty_cycle": 1.0,
-        "enable": false,
-        "frequency": 1.0,
+        "duty_cycle": 100,
+        "enable": true,
+        "frequency": 9999,
         "id": 22,
-        "mode": "Digital",
+        "mode": "Pulse Width Modulation",
         "name": "GPIO 22",
-        "type": "Input",
+        "type": "Output",
         "value": 0
     },
     "23": {
