@@ -17,10 +17,7 @@ It has been written in [**Python 3**] (https://www.python.org/) using [**PyQt 5.
 `sudo apt-get install python-pyqt5`
 
 
-**Optional**: Using pipenv may not work sometimes. I don't know why.
-Install **pipenv**:
-`sudo pip3 install pipenv`
-
+**Optional**: Using pipenv may not work sometimes. I don't know why. But if you are familiar with pipenv you can try. There is a Pipfile with dependencies.
 
 ## Install steps
 1. Download or clone the repository using:
