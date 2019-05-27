@@ -1,4 +1,4 @@
-# from RPi import GPIO
+from RPi import GPIO
 import os
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import QModelIndex, Qt
@@ -23,8 +23,9 @@ class DigitalInputController(QtWidgets.QWidget):
 
     def on_read_input(self, checked):
         pin = PIN_LIST[self.current_model_index.row()]
-        # value = GPIO.input(int(pin.id))
-        self.ui.lineEdit_value.setText("0")  # Edit 0 by str(value)
+        if pin.enable:
+        	value = GPIO.input(pin.id)
+        	self.ui.lineEdit_value.setText(str(value))
 
     def set_selection(self, current):
         self.current_model_index = current
@@ -36,32 +37,39 @@ class DigitalOutputController(QtWidgets.QWidget):
         self.ui = Ui_DigitalOutput()
         self.ui.setupUi(self)
         self.current_model_index = None
-        self.pin = PIN_LIST[0]
         self.model = model
+        self.pin = PIN_LIST[0]
 
-        self.data_mapper = QtWidgets.QDataWidgetMapper()
-        self.data_mapper.setModel(self.model)
-        self.data_mapper.addMapping(self.ui.slider_value, 5)
-        self.data_mapper.addMapping(self.ui.spinbox_value, 5)
+        #self.data_mapper = QtWidgets.QDataWidgetMapper()
+        #self.data_mapper.setModel(self.model)
+        #self.data_mapper.addMapping(self.ui.slider_value, 5)
+        #self.data_mapper.addMapping(self.ui.spinbox_value, 5)
 
         self.ui.slider_value.valueChanged.connect(self.on_slider_value_changed)
         self.ui.spinbox_value.valueChanged.connect(self.on_spinbox_value_changed)
 
     def on_slider_value_changed(self, value):
         self.ui.spinbox_value.setValue(value)
-        # GPIO.output(int(self.pin.id), value)
-
+        #pin = PIN_LIST[self.current_model_index.row()]
+        print(self.pin.id)
+        GPIO.output(self.pin.id, value)
+        self.pin.value = value
+        
     def on_spinbox_value_changed(self, value):
         self.ui.slider_value.setValue(value)
-        # GPIO.output(int(self.pin.id), value)
+        #pin = PIN_LIST[self.current_model_index.row()]
+        GPIO.output(self.pin.id, value)
+        self.pin.value = value
 
     def set_selection(self, current):
         self.current_model_index = current
-        self.data_mapper.setCurrentModelIndex(current)
+        self.pin = PIN_LIST[self.current_model_index.row()]
+        #self.data_mapper.setCurrentModelIndex(current)
 
     def showEvent(self, a0: QtGui.QShowEvent):
         a0.accept()
-
+        self.ui.slider_value.setValue(self.pin.value)
+        self.ui.spinbox_value.setValue(self.pin.value)
 
 class PulseWidthModulationController(QtWidgets.QWidget):
     def __init__(self, model: PinModel, parent=None, flags=Qt.Widget):
@@ -70,14 +78,14 @@ class PulseWidthModulationController(QtWidgets.QWidget):
         self.ui.setupUi(self)
         self.model = model
         self.current_model_index = None
-        self.data_mapper = QtWidgets.QDataWidgetMapper()
-        self.data_mapper.setModel(self.model)
         self.pin = PIN_LIST[0]
+        #self.data_mapper = QtWidgets.QDataWidgetMapper()
+        #self.data_mapper.setModel(self.model)
 
-        self.data_mapper.addMapping(self.ui.spinbox_frequency, 3)
-        self.data_mapper.addMapping(self.ui.slider_frequency, 3)
-        self.data_mapper.addMapping(self.ui.spinbox_duty_cycle, 4)
-        self.data_mapper.addMapping(self.ui.slider_duty_cycle, 4)
+        #self.data_mapper.addMapping(self.ui.spinbox_frequency, 3)
+        #self.data_mapper.addMapping(self.ui.slider_frequency, 3)
+        #self.data_mapper.addMapping(self.ui.spinbox_duty_cycle, 4)
+        #self.data_mapper.addMapping(self.ui.slider_duty_cycle, 4)
 
         self.ui.slider_frequency.valueChanged.connect(self.on_slider_frequency)
         self.ui.slider_duty_cycle.valueChanged.connect(self.on_slider_duty_cycle)
@@ -87,38 +95,49 @@ class PulseWidthModulationController(QtWidgets.QWidget):
 
     def on_button_pwm(self, value):
         if value:
-            self.ui.button_pwm.setText("Stop")
+        	print(self.pin.frequency, self.pin.duty_cycle)
+        	self.ui.button_pwm.setText("Stop")
+        	self.pin.pwm_instance.start(self.pin.duty_cycle)
+        	self.pin.pwm_instance.ChangeFrequency(self.pin.frequency) 
         else:
             self.ui.button_pwm.setText("Start")
+            self.pin.pwm_instance.stop()
 
     def on_spinbox_duty_cycle(self, value):
         self.ui.slider_duty_cycle.setValue(value)
-        # if self.pin.pwm_instance:
-        #     self.pin.pwm_instance.ChangeDutyCycle(value)
-
+        if self.pin.pwm_instance and value > 0:
+        	self.pin.pwm_instance.ChangeDutyCycle(value)
+        	self.pin.duty_cycle = value
+			
     def on_spinbox_frequency(self, value):
         self.ui.slider_frequency.setValue(value)
-        # if self.pin.pwm_instance and value > 0:
-        #     self.pin.pwm_instance.ChangeFrequency(value)
-
+        if self.pin.pwm_instance and value > 0:
+        	self.pin.pwm_instance.ChangeFrequency(value)
+        	self.pin.frequency = value
+			
     def on_slider_frequency(self, value):
         self.ui.spinbox_frequency.setValue(value)
-        # if self.pin.pwm_instance and value > 0:
-        #     self.pin.pwm_instance.ChangeFrequency(value)
-
+        if self.pin.pwm_instance and value > 0:
+            self.pin.pwm_instance.ChangeFrequency(value)
+            self.pin.frequency = value
+			
     def on_slider_duty_cycle(self, value):
         self.ui.spinbox_duty_cycle.setValue(value)
-        # if self.pin.pwm_instance:
-        #     self.pin.pwm_instance.ChangeDutyCycle(value)
-
+        if self.pin.pwm_instance and value > 0:
+            self.pin.pwm_instance.ChangeDutyCycle(value)
+            self.pin.duty_cycle = value
+			
     def set_selection(self, current):
         self.current_model_index = current
         self.pin = PIN_LIST[self.current_model_index.row()]
-        self.data_mapper.setCurrentModelIndex(current)
+        #self.data_mapper.setCurrentModelIndex(current)
 
     def showEvent(self, a0: QtGui.QShowEvent):
         a0.accept()
-
+        self.ui.slider_frequency.setValue(self.pin.frequency)
+        self.ui.spinbox_frequency.setValue(self.pin.frequency)
+        self.ui.spinbox_duty_cycle.setValue(self.pin.duty_cycle)
+        self.ui.slider_duty_cycle.setValue(self.pin.duty_cycle)
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, parent=None, flags=Qt.Window):
@@ -198,7 +217,6 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.button_enable.setText("Enable")
 
     def on_button_enable(self, value):
-        # self.on_update_ui(self.current_model_index.row())
         self.ui.comboBox_type.setEnabled(not value)
         self.ui.comboBox_mode.setEnabled(not value)
         self.pwm_controller.ui.button_pwm.setEnabled(value)
@@ -209,15 +227,41 @@ class MainWindow(QtWidgets.QMainWindow):
         self.digital_input_controller.ui.pushButton_read.setEnabled(value)
         self.digital_output_controller.ui.slider_value.setEnabled(value)
         self.digital_output_controller.ui.spinbox_value.setEnabled(value)
-        PIN_LIST[self.current_model_index.row()].enable = value
-
+        pin = PIN_LIST[self.current_model_index.row()]
+        pin.enable = value
+    	
         if value:
             self.ui.button_enable.setText("Disable")
+            
+            if pin.type.__eq__("Input") and pin.mode.__eq__("Digital"):
+            	GPIO.setup(pin.id, GPIO.IN)
+            else:
+            	if pin.mode.__eq__("Digital"):
+            		GPIO.setup(pin.id, GPIO.OUT)
+            		GPIO.output(pin.id, pin.value)
+            	else:
+            		GPIO.setup(pin.id, GPIO.OUT)
+            		print(pin.frequency)
+            		if not pin.pwm_instance:
+            			pin.pwm_instance = GPIO.PWM(pin.id, pin.frequency)
+            
         else:
             self.ui.button_enable.setText("Enable")
             self.pwm_controller.ui.button_pwm.setText("Start")
             self.pwm_controller.ui.button_pwm.setChecked(False)
             self.pwm_controller.ui.button_pwm.setEnabled(False)
+            
+            if pin.type.__eq__("Input") and pin.mode.__eq__("Digital"):
+            	GPIO.setup(pin.id, GPIO.IN)
+            else:
+            	if pin.mode.__eq__("Digital"):
+            		GPIO.setup(pin.id, GPIO.OUT)
+            		GPIO.output(pin.id, 0)
+            	else:
+            		if pin.pwm_instance:
+            			pin.pwm_instance.stop()
+            			pin.pwm_instance = None
+            
 
     def on_update_controllers(self, pin_type: str, pin_mode: str):
         if pin_type.__eq__("Input"):
@@ -276,6 +320,12 @@ class MainWindow(QtWidgets.QMainWindow):
                 filename += ".json"
             from db import load_configuration
             load_configuration(filename)
+            self.model.removeRows(0, 27)
+            for pin in PIN_LIST:
+            	self.model.insert([0, pin])
+            
+            #self.on_update_ui(self.ui.listView.currentIndex().row())
+            
 
 
 class LicenseController(QtWidgets.QWidget):

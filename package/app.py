@@ -6,8 +6,8 @@ from db import save_configuration, load_configuration
 from package.controllers import MainWindow
 
 
-# import RPi.GPIO as GPIO
-# GPIO.setmode(GPIO.BCM)
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
 
 
 class Application(QApplication):

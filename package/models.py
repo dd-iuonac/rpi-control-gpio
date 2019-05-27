@@ -27,3 +27,15 @@ class PinModel(QAbstractTableModel):
 
     def flags(self, index: QModelIndex):
         return Qt.ItemIsEnabled | Qt.ItemIsSelectable
+        
+    def removeRows(self, p_int, p_int_1, parent=QModelIndex(), *args, **kwargs):
+        self.beginRemoveRows(parent, p_int, p_int + p_int_1 - 1)
+        del self._pins_list[p_int: p_int_1]
+            
+        self.endRemoveRows()
+        return True
+    def insertRow(self, p_int, parent=QModelIndex(), *args, **kwargs):
+        self.beginInsertRows(parent, 0, 0)
+        print("dsaasdafasdg", p_int[1])
+        self._pins_list.insert(p_int[0], p_int[1])
+        self.endInsertRows()         
