@@ -166,3 +166,4 @@ class Ui_MainWindow(object):
         self.action_license.setText(_translate("MainWindow", "License"))
 
 
+import resources_rc

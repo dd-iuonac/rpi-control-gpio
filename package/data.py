@@ -1,3 +1,7 @@
+"""
+    Pin class represents a pin. This class is a data structure
+"""
+
 
 class Pin(object):
     def __init__(self):
@@ -41,6 +45,7 @@ class Pin(object):
         elif column == 5:
             return self.value
 
+    # Represents the pin state as a dictionary object
     def __repr__(self):
         data = {
             "id": self.id,
@@ -54,6 +59,7 @@ class Pin(object):
         }
         return data
 
+    # Loads a dictionary to current object
     def load(self, config: dict):
         self.id = config["id"]
         self.name = config["name"]
