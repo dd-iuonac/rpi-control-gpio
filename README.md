@@ -3,6 +3,10 @@ This is a tool for controlling Raspberry Pi 3 G.P.I.O.
 
 It has been written in [**Python 3**](https://www.python.org/) using [**PyQt 5.12**](https://www.riverbankcomputing.com/static/Docs/PyQt5/), the python variant for [**Qt 5 Framework**](https://www.qt.io/)
 
+
+<img src="icons/rpi-control.png">
+## 
+
 ## Requirements
 1. Install **Python 3 pip**:
 `sudo apt install python3-pip`
